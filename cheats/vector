@@ -1,0 +1,12 @@
+to erase a number in vector and must remember reduce the size of vector by 1 and decrease i by 1
+      if(u[i].ss==0){
+        u.erase(std::find(vr(u),u[i]));
+        m--;
+        i--; 
+      }
+--------------------------------------------------------------------------------------------------
+to erase single letter in string
+s.erase(i,1);
+first argument is index and second is size
+
+----------------------------------------------------------------------------------------------------
