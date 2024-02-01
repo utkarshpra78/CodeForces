@@ -26,3 +26,34 @@ void q(ll x){
 		}
 	}
 }
+
+_______________SUMMARY_____________________________________
+
+const int N=200005;
+ll spf[N];
+
+void sf(){
+	for(ll i=1;i<N;i++){
+		spf[i]=i;
+	}
+	
+	for(ll i=2;i<N;i++){
+		if(spf[i]==i){	
+			for(ll j=2*i;j<N;j+=i){
+				spf[j]=min(spf[j],i);
+			}
+		}
+	}
+}
+
+ll q(ll x){
+	ll c=0;
+	while(x!=1){
+		int a=spf[x];
+		c++;
+		while(x%a==0){
+			x=x/a;
+		}
+	}
+	return c<=1;	
+}
