@@ -1,0 +1,28 @@
+_____________SMALLEST PRIME FACTOR_____________________
+const int N=200005;
+ll spf[N];
+
+void sf(){
+	for(ll i=1;i<N;i++){
+		spf[i]=i;
+	}
+	
+	for(ll i=2;i<N;i++){
+		if(spf[i]==i){	
+			for(ll j=2*i;j<N;j+=i){
+				spf[j]=min(spf[j],i);
+			}
+		}
+	}
+}
+
+__________PRIME FACTORISATION USING SPF_____________________
+void q(ll x){
+	while(q!=1){
+		int a=sf[x];
+		while(x%a==0){
+			x=x/a;
+			
+		}
+	}
+}
