@@ -15,3 +15,6 @@ cout<<fixed<<setprecision(12)<<ct/m<<endl;
 make sure ct and m are float;
 
 ___________________________________________________________________________________________________
+
+//Update :You can also represent any number in its binary form as;
+cout<<bitset<const_length>(number);
