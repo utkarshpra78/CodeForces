@@ -1,0 +1,89 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+#define utkarsh 1
+#define Code ios_base::sync_with_stdio(false);
+#define By cin.tie(NULL);
+#define Asquare cout.tie(NULL);
+using ll= long long;
+using lld= long double;
+using ull= unsigned long long;
+const lld pi= 3.141592653589793238;
+const ll INF= LONG_LONG_MAX;//infinity
+const ll mod=1e9+7;
+typedef pair<ll, ll> pll;
+typedef vector<ll> vll; //vll v
+typedef vector<pll> vpll;
+typedef vector<string> vs;
+typedef unordered_map<ll,ll> umll;
+typedef map<ll,ll> mll;
+#define ff first
+#define ss second
+#define pb push_back
+#define mp make_pair
+#define fl(i,n) for(int i=0;i<n;i++)
+#define rl(i,m,n) for(int i=n;i>=m;i--)
+#define vr(v) v.begin(),v.end()//sort(v.begin(),v.end()) -> sort(vr(v))
+#define rv(v) v.end(),v.begin()
+#define flp(i,a,b) for(int i = a; i <= b; i++)
+
+ll a,r,m;
+vll v;
+
+ll func(ll h){
+   ll p = 0;
+   ll q = 0;
+
+   for(int i=0;i<v.size();i++){
+      if(v[i] > h){
+         q += (v[i] - h);
+      }
+      else if(v[i] < h){
+         p += (h - v[i]);
+      }
+   }
+   ll cost = 0;
+   if(p >= q){
+      cost = q*m + (p-q)*a;
+   }else{
+      cost = p*m + (q-p)*r;
+   }
+   return cost; 
+}
+
+void square(){
+   ll n;
+   cin>>n>>a>>r>>m;
+   m = min(m,(a+r));
+   fl(i,n){
+      ll a;cin>>a;v.pb(a);
+   }
+   ll l = 0;
+   ll r = 1e9;
+   while(l<r){
+      ll m1 = l + (r-l)/3;
+      ll m2 = r - (r-l)/3;
+
+      ll fm1 = func(m1);
+      ll fm2 = func(m2);
+      if(fm1 > fm2){
+         l = m1 + 1;
+      }else if(fm1 < fm2){
+         r = m2 - 1;
+      }else{
+         l = m1 + 1;
+         r = m2 - 1;
+      }
+   }
+   cout<<func(l)<<endl;
+ }
+int main()
+{
+   Code By Asquare
+   // int n;
+   // cin>>n;
+   // while(n--){
+   //    square();
+   // }  
+   square();
+}
