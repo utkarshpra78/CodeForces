@@ -18,3 +18,8 @@ ________________________________________________________________________________
 
 //Update :You can also represent any number in its binary form as;
 cout<<bitset<const_length>(number);
+
+_______________________________________________________________________________________________
+
+same as set me dalna
+v.erase(unique(v.begin(), v.end()), v.end());
