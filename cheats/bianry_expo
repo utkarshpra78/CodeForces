@@ -1,0 +1,22 @@
+_______________________________BINARY EXPONENTIATION___________________________________________
+ll binpow(ll a,ll b){
+	ll ans=1;
+	while(b>0){
+		if(b%2)ans=(ans*a)%mod;
+		a=(a*a)%mod;
+		b>>=1;
+	}
+	return ans;
+}
+
+_______________________________________FERMET LITTLE THEOREM_______________________________________
+ll inv(ll x){
+	return binpow(x,mod-2);
+}
+
+______________________________NCR USING BINARY EXPONENTIATION_______________________________________
+ll pnc(int a,int b){
+	ll y=fact[a];
+	ll x=(fact[b]*fact[a-b])%mod;
+	return (y*inv(x))%mod;
+}
